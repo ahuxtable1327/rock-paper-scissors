@@ -16,7 +16,7 @@ class Game {
     // logic for easy
   }
 
-  isGameDraw() {}
+  isGameDraw() {
   // isGameDraw() method that checks to see if
   // one player one and evaluates to true if not
   // in main JS condition that says if isGameDraw === true

@@ -31,6 +31,8 @@ main {
   width: 100vw;
 }
 
+/* GAME CONSOLE */
+
 .game-console {
   background-color: #b8b8b8;
   width: 60vw;
@@ -51,6 +53,15 @@ main {
   align-items: center;
   align-self: center;
 }
+
+.classic-fighter {
+  height: 200px;
+  width: 200px;
+
+}
+
+
+/* PLAYER CONSOLE */
 
 .left-aside,
 .right-aside {
