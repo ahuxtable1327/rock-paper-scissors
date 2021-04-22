@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Rock, Paper, Scissors</title>
+  </head>
+  <body>
+    <header>
+      <h1>Rock, Paper, Scissors</h1>
+      <subtitle class='subtitle' id='subtitle'>Choose your game!</subtitle>
+    </header>
+    <main>
+      <aside class='left-aside' id='leftAside'>
+        <img src='' alt=''>
+        <h2> player</h2>
+        <p>Wins:</p>
+      </aside>
+      <section class='game-console' id='gameConsole'>
+        <button class='classic' id='classic'>
+          <h3> Classic </h3>
+          <p class='classic-rules'>Rock > Scissors</p>
+          <p class='classic-rules'>Scissors > Paper</p>
+          <p class='classic-rules'>Paper > Rock</p>
+        </button>
+        <button class='difficult' id='difficult'>
+          <h3> Difficult </h3>
+          <p class='difficult-rules'>UFO > Alien & Lizard</p>
+          <p class='difficult-rules'>Alien > Lizard & Cave </p>
+          <p class='difficult-rules'>Lizard > Rock </p>
+          <p class='difficult-rules'>Rock > Alien & UFO</p>
+          <p class='difficult-rules'>Cave > Lizard & UFO</p>
+        </button>
+      </section>
+      <aside class='right-aside' id='rightAside'>
+        <img src='' alt=''>
+        <h2>Computer</h2>
+        <p>Wins:</p>
+      </aside>
+    </main>
+  </body>
+  <script src="./src/player.js"></script>
+  <script src="./src/game.js"></script>
+  <script src="./src/main.js"></script>
+</html>
