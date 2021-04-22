@@ -1,1 +1,59 @@
 
+/* Font- Family
+
+COLORS:
+main: #025215
+sides: #9bcfa7
+*/
+
+* {
+  margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+  font-family: 'Montserrat', sans-serif;
+  border: 1px solid blue;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background-color: #6bd1ad;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.game-console {
+  background-color: #b8b8b8;
+  width: 60vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.classic,
+.difficult {
+  background-color: #6bd1ad;
+  height: 20vh;
+  width: 20vw;
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+}
+
+.left-aside,
+.right-aside {
+  background-color: #d6d6d6;
+  width: 20vw;
+}
