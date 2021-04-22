@@ -11,7 +11,7 @@ class Game {
     // and checks the rules for the game being played
     // and returns the winner.
     // increments the wins by 1
-    // assigns wins to player
+    // assigns wins to player in player class
     // logic for difficult
     // logic for easy
   }
