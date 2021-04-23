@@ -32,5 +32,4 @@ function displayDifficultChoices() {
     <img class='difficult-fighter' id='difficultPotato' src='./assets/potato.png' alt='Potato icon'>
   </section>
   `
-
 }

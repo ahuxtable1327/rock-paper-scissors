@@ -5,10 +5,10 @@ class Player {
     this.wins = thePlayer.wins;
   }
   saveWinsToStorage(){
-
+    localStorage.setItem()
   };
   retrieveWinsFromStorage() {
-
+    localStorage.getItem()
   };
   takeTurn() {
 
@@ -22,5 +22,6 @@ class Player {
 // take turn method tells computer to getRandomIndex
 // once computer does that and the game determines a winner
 // the take turn method refreshes the page to make it the human
-// players turn. 
+// players turn.
 //
+module.exports = Player;

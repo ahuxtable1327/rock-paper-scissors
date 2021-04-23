@@ -1,6 +1,9 @@
+var Player = require('./player.js');
+
 class Game {
   constructor(gameType){
-    this.players = [];
+    this.playerOne = new Player({name:'Farmer Jann', token:'👩‍🌾'})
+    this.playerTwo = new Player({name: 'Computer', token:'💻'})
     this.gameType = gameType;
 
 
@@ -27,10 +30,12 @@ class Game {
     // method that resets the game board???
   }
 }
-
+var game1 = new Game('Classic');
 // computer gets random index when player 1
 // chooses a player
 
 // getRandomIndex(array) {
 // return math.floor(math.random() * array.length)
 //}
+
+console.log(game1);
