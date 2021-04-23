@@ -5,9 +5,16 @@ class Game {
     this.playerOne = new Player({name:'Farmer Jann', token:'👩‍🌾'})
     this.playerTwo = new Player({name: 'Computer', token:'💻'})
     this.gameType = gameType;
+    // this.oneTurn = true;
+    // this.twoTurn = false;
 
 
 
+  }
+  changeTurn() {
+    // if this.playerOne.player.takesTurn() {
+    // this.playerTwo.player.takesTurn()
+  }
   }
   determineWinner() {
     // method that checks the existing data on the game board
@@ -17,6 +24,7 @@ class Game {
     // assigns wins to player in player class
     // logic for difficult
     // logic for easy
+    //  method invoked in main JS and winner is displayed
   }
 
   isGameDraw() {
@@ -28,6 +36,8 @@ class Game {
   }
   resetGame(){
     // method that resets the game board???
+    // automatic timeout setTimeout()
+    // window reload to main page
   }
 }
 var game1 = new Game('Classic');

@@ -2,7 +2,7 @@ class Player {
   constructor(thePlayer) {
     this.name = thePlayer.name;
     this.token = thePlayer.token;
-    this.wins = thePlayer.wins;
+    this.wins = 0;
   }
   saveWinsToStorage(){
     localStorage.setItem()
@@ -11,6 +11,10 @@ class Player {
     localStorage.getItem()
   };
   takeTurn() {
+    // when a user clicks on a radio button
+    // then game.changeTurn()
+    // computer takes turn (random index)
+    // then game.determineWinner()
 
   };
 }
