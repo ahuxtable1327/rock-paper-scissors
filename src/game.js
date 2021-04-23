@@ -1,22 +1,31 @@
-var Player = require('./player.js');
+// var Player = require('./player.js');
 
 class Game {
   constructor(gameType){
-    this.playerOne = new Player({name:'Farmer Jann', token:'👩‍🌾'})
-    this.playerTwo = new Player({name: 'Computer', token:'💻'})
+    this.farmer = new Player({name:'Farmer Jann', token:'👩‍🌾'})
+    this.computer = new Player({name: 'Computer', token:'💻'})
     this.gameType = gameType;
-    // this.oneTurn = true;
-    // this.twoTurn = false;
+    this.isFarmersTurn = true
+    this.isComputerTurn = false
+    this.classicFighters = ['classicRock', 'classicPaper', 'classicScissors']
+    // this.difficultFighters = []
+
 
 
 
   }
+
+
   changeTurn() {
-    // if this.playerOne.player.takesTurn() {
-    // this.playerTwo.player.takesTurn()
-  }
+      // if(this.farmer.takeTurn()){
+      //   this.isFarmersTurn = false
+      //   this.isComputerTurn = true
+      // }
+
+      // this.playerTwo.player.takesTurn()
   }
   determineWinner() {
+    //player.wins++
     // method that checks the existing data on the game board
     // and checks the rules for the game being played
     // and returns the winner.
@@ -25,6 +34,7 @@ class Game {
     // logic for difficult
     // logic for easy
     //  method invoked in main JS and winner is displayed
+    // saveToStorage
   }
 
   isGameDraw() {
@@ -44,8 +54,8 @@ var game1 = new Game('Classic');
 // computer gets random index when player 1
 // chooses a player
 
-// getRandomIndex(array) {
-// return math.floor(math.random() * array.length)
-//}
+function getRandomIndex(array) {
+return Math.floor(Math.random() * array.length)
+}
 
 console.log(game1);
