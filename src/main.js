@@ -25,11 +25,11 @@ function displayDifficultChoices() {
   gameConsole.innerHTML = `
   <h3>Choose your fighter!</h3>
   <section class='difficult-choices'>
-    <img class='difficult-fighter' id='difficultRock' src='./assets/happy-rocks.png' alt='happy rocks icon'>
-    <img class='difficult-fighter' id='difficultAlien' src='./assets/flat-alien.png' alt='alien icon'>
-    <img class='difficult-fighter' id='difficultLizard' src='./assets/lizard.png' alt='lizard icon'>
-    <img class='difficult-fighter' id='difficultCave' src='./assets/cave.png' alt='cave icon'>
-    <img class='difficult-fighter' id='difficultUFO' src='./assets/ufo.png' alt='ufo icon'>
+    <img class='difficult-fighter' id='difficultCorn' src='./assets/corn.png' alt='Corn icon'>
+    <img class='difficult-fighter' id='difficultCarrot' src='./assets/carrot.png' alt='Carrot icon'>
+    <img class='difficult-fighter' id='difficultTurnip' src='./assets/turnip.png' alt='Turnip icon'>
+    <img class='difficult-fighter' id='difficultTomato' src='./assets/tomato.png' alt='Tomato icon'>
+    <img class='difficult-fighter' id='difficultPotato' src='./assets/potato.png' alt='Potato icon'>
   </section>
   `
 
