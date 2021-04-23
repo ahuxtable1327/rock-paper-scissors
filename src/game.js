@@ -18,8 +18,8 @@ class Game {
 
   changeTurn() {
       // if(this.farmer.takeTurn()){
-      //   this.isFarmersTurn = false
-      //   this.isComputerTurn = true
+        this.isFarmersTurn = false;
+        this.isComputerTurn = true;
       // }
 
       // this.playerTwo.player.takesTurn()

@@ -66,35 +66,38 @@ function displayFarmerChoice(event) {
   if (farmerChoice === 'classicRock') {
     gameConsole.innerHTML = `
     <img class='classic-fighter' id='classicRock' src='./assets/happy-rocks.png' alt='happy rocks'> `
+    game.changeTurn();
     displayComputerChoice();
   }
   if (farmerChoice === 'classicPaper') {
     gameConsole.innerHTML = `
     <img class='classic-fighter' id='classicPaper' src='./assets/happy-paper.png' alt='happy paper'> `
+    game.changeTurn();
     displayComputerChoice();
   }
   if (farmerChoice === 'classicScissors') {
     gameConsole.innerHTML = `
     <img class='classic-fighter' id='classicScissors' src='./assets/happy-scissors.png' alt='happy scissors'> `
+    game.changeTurn();
     displayComputerChoice();
   }
 }
 
 
 function displayComputerChoice() {
-    // var game1 = new Game('classic')
-    // var computer = game1[computer].move
-    var computerChoice = game.classicFighters[getRandomIndex(game.classicFighters)]
-    console.log(computerChoice)
-  if (computerChoice === 'classicRock') {
+    var computer1 = new Player(game.computer)
+    computer1.takeTurn()
+    // var computerChoice = game.classicFighters[getRandomIndex(game.classicFighters)]
+    // console.log(computerChoice)
+  if (computer1.move === 'classicRock') {
     gameConsole.innerHTML += `
     <img class='classic-fighter' id='classicRock' src='./assets/happy-rocks.png' alt='happy rocks'>`
   }
-  if (computerChoice === 'classicPaper') {
+  if (computer1.move === 'classicPaper') {
     gameConsole.innerHTML += `
     <img class='classic-fighter' id='classicPaper' src='./assets/happy-paper.png' alt='happy paper'>`
   }
-  if (computerChoice === 'classicScissors') {
+  if (computer1.move === 'classicScissors') {
     gameConsole.innerHTML += `
     <img class='classic-fighter' id='classicScissors' src='./assets/happy-scissors.png' alt='happy scissors'>`
   }

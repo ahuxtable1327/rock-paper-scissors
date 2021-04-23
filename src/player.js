@@ -12,17 +12,17 @@ class Player {
     localStorage.getItem()
   };
   takeTurn() {
-    //if (game.isFarmersTurn) {
-  // if (game.isComputerTurn = true) {
-  //   var computerChoice = game.classicFighters[getRandomIndex(game.classicFighters)]
-  //    return this.move = computerChoice
-  // // } else if (event.target.)
+  if (game.isComputerTurn ) {
+    // game.isComputerTurn = 'second'
+   this.move = game.classicFighters[getRandomIndex(game.classicFighters)]
+}
+
     // when a user clicks on a
     // then game.changeTurn()
     // computer takes turn (random index)
     // then game.determineWinner()
     // if (getrandomindex(classicchoices).id)
-  // }
+  
   };
 }
 
