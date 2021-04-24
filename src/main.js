@@ -1,5 +1,6 @@
 // QUERY SELECTORS
 var gameConsole = document.getElementById('gameConsole')
+var subtitle = document.getElementById('subtitle')
 
 //GLOBAL VARIABLES
 
@@ -9,7 +10,7 @@ var game;
 // EVENT LISTENERS
 gameConsole.addEventListener('click', function(event) {
   displayChoices(event)
-  displayPlayerMoves(event)
+  displayFarmerChoice(event)
 });
 
 // EVENT HANDLERS
@@ -53,28 +54,30 @@ function displayDifficultChoices() {
   `
 }
 
-function evaluatePlayerMoves(event) {
-  displayFarmerChoice(event)
-  evaluateWinner();
-  //
-  // player.takeTurn()
-
-}
+// // function evaluatePlayerMoves(event) {
+//   displayFarmerChoice(event)
+//
+//   // player.takeTurn()
+//
+// }
 
 
 function displayFarmerChoice(event) {
   var farmerChoice = event.target.id
   if (farmerChoice === 'classicRock') {
+    game.farmer.weapon = farmerChoice
     gameConsole.innerHTML = `
     <img class='classic-fighter' id='classicRock' src='./assets/happy-rocks.png' alt='happy rocks'> `
     displayComputerChoice();
   }
   if (farmerChoice === 'classicPaper') {
+    game.farmer.weapon = farmerChoice
     gameConsole.innerHTML = `
     <img class='classic-fighter' id='classicPaper' src='./assets/happy-paper.png' alt='happy paper'> `
     displayComputerChoice();
   }
   if (farmerChoice === 'classicScissors') {
+    game.farmer.weapon = farmerChoice
     gameConsole.innerHTML = `
     <img class='classic-fighter' id='classicScissors' src='./assets/happy-scissors.png' alt='happy scissors'> `
     displayComputerChoice();
@@ -83,24 +86,48 @@ function displayFarmerChoice(event) {
 
 
 function displayComputerChoice() {
-    var computer1 = new Player(game.computer)
-    computer1.takeTurn()
-    console.log(computer1)
-  if (computer1.weapon === 'classicRock') {
+    game.computer.takeTurn()
+  if (game.computer.weapon === 'classicRock') {
     gameConsole.innerHTML += `
+    <h3 id='subtitle'></h3>
     <img class='classic-fighter' id='classicRock' src='./assets/happy-rocks.png' alt='happy rocks'>`
   }
-  if (computer1.weapon === 'classicPaper') {
+  if (game.computer.weapon === 'classicPaper') {
     gameConsole.innerHTML += `
+      <h3 id='subtitle'></h3>
     <img class='classic-fighter' id='classicPaper' src='./assets/happy-paper.png' alt='happy paper'>`
   }
-  if (computer1.weapon === 'classicScissors') {
+  if (game.computer.weapon === 'classicScissors') {
     gameConsole.innerHTML += `
+      <h3 id='subtitle'></h3>
     <img class='classic-fighter' id='classicScissors' src='./assets/happy-scissors.png' alt='happy scissors'>`
   }
+  evaluateWinner();
   // game.changeTurn()
 }
 
 function evaluateWinner() {
-
+  checkWinConditions();
 }
+
+function checkWinConditions(){
+  var checkFarmer = game.determineClassicWinner(game.farmer, game.computer)
+  var checkComputer = game.determineClassicWinner(game.computer, game.farmer)
+
+  if (checkFarmer) {
+    // game.farmer.wins++
+    gameConsole.innerHTML += `<h3>Farmer Wins!</h3>`
+  }
+  if (checkComputer) {
+    console.log('Computer!')
+    // game.computer.wins++
+    gameConsole.innerHTML += `<h3>Computer Wins!</h3>`
+  }
+  else {
+    // debugger
+    console.log('Draw!')
+    gameConsole.innerHTML += `<h3>It's a draw!</h3>`
+    // return
+  }
+}
+// renderWinner

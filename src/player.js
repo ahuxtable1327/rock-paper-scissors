@@ -15,6 +15,7 @@ class Player {
   if (!game.isComputerTurn) {
     game.isComputerTurn = true;
     game.isFarmersTurn = false;
+    // this.weapon = 'classicRock'
     this.weapon = game.classicFighters[getRandomIndex(game.classicFighters)];
  } else {
    game.isFarmersTurn;
