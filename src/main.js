@@ -53,8 +53,9 @@ function displayDifficultChoices() {
   `
 }
 
-function displayPlayerMoves(event) {
+function evaluatePlayerMoves(event) {
   displayFarmerChoice(event)
+  evaluateWinner();
   //
   // player.takeTurn()
 
@@ -66,19 +67,16 @@ function displayFarmerChoice(event) {
   if (farmerChoice === 'classicRock') {
     gameConsole.innerHTML = `
     <img class='classic-fighter' id='classicRock' src='./assets/happy-rocks.png' alt='happy rocks'> `
-    game.changeTurn();
     displayComputerChoice();
   }
   if (farmerChoice === 'classicPaper') {
     gameConsole.innerHTML = `
     <img class='classic-fighter' id='classicPaper' src='./assets/happy-paper.png' alt='happy paper'> `
-    game.changeTurn();
     displayComputerChoice();
   }
   if (farmerChoice === 'classicScissors') {
     gameConsole.innerHTML = `
     <img class='classic-fighter' id='classicScissors' src='./assets/happy-scissors.png' alt='happy scissors'> `
-    game.changeTurn();
     displayComputerChoice();
   }
 }
@@ -87,19 +85,22 @@ function displayFarmerChoice(event) {
 function displayComputerChoice() {
     var computer1 = new Player(game.computer)
     computer1.takeTurn()
-    // var computerChoice = game.classicFighters[getRandomIndex(game.classicFighters)]
-    // console.log(computerChoice)
-  if (computer1.move === 'classicRock') {
+    console.log(computer1)
+  if (computer1.weapon === 'classicRock') {
     gameConsole.innerHTML += `
     <img class='classic-fighter' id='classicRock' src='./assets/happy-rocks.png' alt='happy rocks'>`
   }
-  if (computer1.move === 'classicPaper') {
+  if (computer1.weapon === 'classicPaper') {
     gameConsole.innerHTML += `
     <img class='classic-fighter' id='classicPaper' src='./assets/happy-paper.png' alt='happy paper'>`
   }
-  if (computer1.move === 'classicScissors') {
+  if (computer1.weapon === 'classicScissors') {
     gameConsole.innerHTML += `
     <img class='classic-fighter' id='classicScissors' src='./assets/happy-scissors.png' alt='happy scissors'>`
   }
   // game.changeTurn()
+}
+
+function evaluateWinner() {
+
 }

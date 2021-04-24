@@ -2,12 +2,12 @@
 
 class Game {
   constructor(gameType){
-    this.farmer = new Player({name:'Farmer Jann', token:'👩‍🌾'})
-    this.computer = new Player({name: 'Computer', token:'💻'})
+    this.farmer = new Player({name:'Farmer Jann', token:'👩‍🌾'});
+    this.computer = new Player({name: 'Computer', token:'💻'});
     this.gameType = gameType;
-    this.isFarmersTurn = true
-    this.isComputerTurn = false
-    this.classicFighters = ['classicRock', 'classicPaper', 'classicScissors']
+    this.isFarmersTurn = true;
+    this.isComputerTurn = false;
+    this.classicFighters = ['classicRock', 'classicPaper', 'classicScissors'];
     // this.difficultFighters = []
 
 
@@ -15,17 +15,30 @@ class Game {
 
   }
 
+  // computerWins(){
+  //   'Computer wins!'
+  // }
+  // farmerWins(){
+  //   'farmer wins'
+  // }
+  // if farmer is winner this.wins++
 
-  changeTurn() {
-      // if(this.farmer.takeTurn()){
-        this.isFarmersTurn = false;
-        this.isComputerTurn = true;
-      // }
+  determineClassicWinner(player1, player2) {
+    // what are my win conditions
 
-      // this.playerTwo.player.takesTurn()
-  }
-  determineWinner() {
-    //player.wins++
+    if (player1.weapon === 'classicRock' && player2.weapon === 'classicPaper' ||
+        player1.weapon === 'classicPaper' && player2.weapon === 'classicScissors' ||
+        player1.weapon === 'classicScissors' && player2.weapon === 'classicRock')
+        return true
+      } else {
+        return false;
+      }
+    // if (player || computer === rock && player || computer === scissors rock Wins
+    // if rock and paper paper wins
+    // if paper and scissors scissors wins
+
+
+    // player.wins++
     // method that checks the existing data on the game board
     // and checks the rules for the game being played
     // and returns the winner.
@@ -37,7 +50,26 @@ class Game {
     // saveToStorage
   }
 
+  checkWinConditions(){
+    var checkFarmer = this.determineWinner(farmer, computer)
+    var checkComputer = this.determineWinner(computer, farmer)
+
+    if (checkFarmer) {
+      // this.farmer.wins++
+      // retrun farmer wins
+    }
+    if (checkComputer) {
+      //this.computer.wins++
+      // return computer wins
+    }
+    else
+    return false
+  }
+
   isGameDraw() {
+    if !determineWinner()
+      // return 'It\'s a draw!'
+    }
   // isGameDraw() method that checks to see if
   // one player one and evaluates to true if not
   // in main JS condition that says if isGameDraw === true

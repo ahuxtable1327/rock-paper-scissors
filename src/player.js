@@ -3,26 +3,30 @@ class Player {
     this.name = thePlayer.name;
     this.token = thePlayer.token;
     this.wins = 0;
-    this.move = null
+    this.weapon = null;
   }
   saveWinsToStorage(){
-    localStorage.setItem()
+    localStorage.setItem();
   };
   retrieveWinsFromStorage() {
-    localStorage.getItem()
+    localStorage.getItem();
   };
   takeTurn() {
-  if (game.isComputerTurn ) {
-    // game.isComputerTurn = 'second'
-   this.move = game.classicFighters[getRandomIndex(game.classicFighters)]
-}
+  if (!game.isComputerTurn) {
+    game.isComputerTurn = true;
+    game.isFarmersTurn = false;
+    this.weapon = game.classicFighters[getRandomIndex(game.classicFighters)];
+ } else {
+   game.isFarmersTurn;
+   !game.isComputerTurn;
+ }
 
     // when a user clicks on a
     // then game.changeTurn()
     // computer takes turn (random index)
     // then game.determineWinner()
     // if (getrandomindex(classicchoices).id)
-  
+
   };
 }
 
