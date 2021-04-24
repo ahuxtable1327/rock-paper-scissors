@@ -39,36 +39,33 @@ class Game {
     var checkFarmer = this.determineClassicWinner(this.farmer, this.computer)
     var checkComputer = this.determineClassicWinner(this.computer, this.farmer)
 
-    displayResults();
-
-  }
-
-  displayResults() {
     if (checkFarmer) {
       console.log('farmer!')
       this.farmer.wins++
       farmerWin();
-      //setTimeout
+      setTimeout(this.resetGame, 2000)
     }
     if (checkComputer) {
       console.log('Computer!')
       this.computer.wins++
       computerWin();
-      // set timeout
+      setTimeout(this.resetGame, 2000)
     }
     if (!checkFarmer && !checkComputer)  {
       console.log('Draw!')
       gameDraw();
-      // setTimeout(resetGame, 2000)
+      setTimeout(this.resetGame, 2000)
     }
   }
 
 
 
   resetGame(){
-    if (currentGame === 'Classic') {
+    console.log('reset')
+    // if (currentGame === 'Classic') {
       displayClassicChoices();
-    }
+      displayChangeGameBtn();
+    // }
     // method that resets the game board???
     // automatic timeout setTimeout()
     // window reload to game  page
