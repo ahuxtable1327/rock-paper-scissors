@@ -22,7 +22,7 @@ class Game {
         player1.weapon === 'classicRock' && player2.weapon === 'classicScissors') {
         return true
       } else {
-        return false;
+        return false
       }
 
     // player.wins++
@@ -35,37 +35,43 @@ class Game {
     // saveToStorage
   }
 
-  // checkWinConditions(){
-  //   var checkFarmer = this.determineClassicWinner(this.farmer, this.computer)
-  //   var checkComputer = this.determineClassicWinner(this.computer, this.farmer)
-  //
-  //   if (checkFarmer) {
-  //     console.log('Farmer!')
-  //     this.farmer.wins++
-  //     // renderFarmer(){
-  //
-  //   }
-  //     //
-  //       //  innerhtml = '
-  //       // '
-  //   }
-  //   if (checkComputer) {
-  //     console.log('Computer!')
-  //     //this.computer.wins++
-  //     // return computer wins
-  //   }
-  //   else {
-  //     // debugger
-  //     console.log('Draw!')
-  //     // return
-  //   }
-  // }
+   checkWinConditions(){
+    var checkFarmer = this.determineClassicWinner(this.farmer, this.computer)
+    var checkComputer = this.determineClassicWinner(this.computer, this.farmer)
+
+    displayResults();
+
+  }
+
+  displayResults() {
+    if (checkFarmer) {
+      console.log('farmer!')
+      this.farmer.wins++
+      farmerWin();
+      //setTimeout
+    }
+    if (checkComputer) {
+      console.log('Computer!')
+      this.computer.wins++
+      computerWin();
+      // set timeout
+    }
+    if (!checkFarmer && !checkComputer)  {
+      console.log('Draw!')
+      gameDraw();
+      // setTimeout(resetGame, 2000)
+    }
+  }
+
 
 
   resetGame(){
+    if (currentGame === 'Classic') {
+      displayClassicChoices();
+    }
     // method that resets the game board???
     // automatic timeout setTimeout()
-    // window reload to main page
+    // window reload to game  page
   }
 }
 var game1 = new Game('Classic');

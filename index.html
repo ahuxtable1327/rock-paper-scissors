@@ -13,29 +13,31 @@
       <aside class='left-aside' id='leftAside'>
         <div class='human-player'>👩‍🌾</div>
         <h2>Farmer Jann</h2>
-        <p>Wins:</p>
+        <p>Wins:<span id='farmWins'>0</span></p>
       </aside>
       <section class='game-console' id='gameConsole'>
         <h3 id='subtitle'>Choose your game!</h3>
-        <button class='classic' id='classic'>
-          <h4> Classic </h4>
-          <p class='classic-rules'>Rock > Scissors</p>
-          <p class='classic-rules'>Scissors > Paper</p>
-          <p class='classic-rules'>Paper > Rock</p>
-        </button>
-        <button class='difficult' id='difficult'>
-          <h4> Difficult </h4>
-          <p class='difficult-rules'>Tomato > Turnip & Potato</p>
-          <p class='difficult-rules'>Turnip > Potato & Carrot </p>
-          <p class='difficult-rules'>Potato > Corn </p>
-          <p class='difficult-rules'>Corn > Turnip & Tomato</p>
-          <p class='difficult-rules'>Carrot > Potato & Tomato</p>
-        </button>
+        <section class='button-fighter' id='buttonFighter'>
+          <button class='classic' id='classic'>
+            <h4> Classic </h4>
+            <p class='classic-rules'>Rock > Scissors</p>
+            <p class='classic-rules'>Scissors > Paper</p>
+            <p class='classic-rules'>Paper > Rock</p>
+          </button>
+          <button class='difficult' id='difficult'>
+            <h4> Difficult </h4>
+            <p class='difficult-rules'>Tomato > Turnip & Potato</p>
+            <p class='difficult-rules'>Turnip > Potato & Carrot </p>
+            <p class='difficult-rules'>Potato > Corn </p>
+            <p class='difficult-rules'>Corn > Turnip & Tomato</p>
+            <p class='difficult-rules'>Carrot > Potato & Tomato</p>
+          </button>
+        </section>
       </section>
       <aside class='right-aside' id='rightAside'>
         <div class='computer-player'>💻</div>
         <h2>Computer</h2>
-        <p>Wins:</p>
+        <p>Wins:<span id='compWins'>0</span></p>
       </aside>
     </main>
   </body>

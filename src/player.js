@@ -12,14 +12,14 @@ class Player {
     localStorage.getItem();
   };
   takeTurn() {
-  if (!game.isComputerTurn) {
-    game.isComputerTurn = true;
-    game.isFarmersTurn = false;
+  if (!currentGame.isComputerTurn) {
+    currentGame.isComputerTurn = true;
+    currentGame.isFarmersTurn = false;
     // this.weapon = 'classicRock'
-    this.weapon = game.classicFighters[getRandomIndex(game.classicFighters)];
+    this.weapon = currentGame.classicFighters[getRandomIndex(currentGame.classicFighters)];
  } else {
-   game.isFarmersTurn;
-   !game.isComputerTurn;
+   currentGame.isFarmersTurn;
+   !currentGame.isComputerTurn;
  }
 
     // when a user clicks on a
