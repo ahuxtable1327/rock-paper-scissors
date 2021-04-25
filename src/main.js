@@ -13,7 +13,8 @@ var currentGame = new Game();
 // EVENT LISTENERS
 buttonFighter.addEventListener('click', function(event) {
   displayChoices(event)
-  displayFarmerChoice(event)
+  displayFarmerClassic(event)
+  displayFarmerDifficult(event)
 });
 changeGame.addEventListener('click', function(event) {
   displayMainPage(event)
@@ -24,11 +25,15 @@ changeGame.addEventListener('click', function(event) {
 function displayChoices(event) {
   var gameChoice = event.target.id
   if (gameChoice === 'classic') {
+    currentGame.gameType = gameChoice;
     displayClassicChoices();
   }
   if (gameChoice === 'difficult') {
+    currentGame.gameType = gameChoice;
+    console.log(currentGame)
     displayDifficultChoices();
   }
+  currentGame.determineFighters();
 }
 
 function displayClassicChoices() {
@@ -46,11 +51,11 @@ function displayDifficultChoices() {
   subtitle.innerText = `Choose your fighter!`
   buttonFighter.innerHTML = `
   <section class='difficult-choices'>
-    <img class='difficult-fighter' id='difficultCorn' src='./assets/corn.png' alt='Corn icon'>
-    <img class='difficult-fighter' id='difficultCarrot' src='./assets/carrot.png' alt='Carrot icon'>
-    <img class='difficult-fighter' id='difficultTurnip' src='./assets/turnip.png' alt='Turnip icon'>
-    <img class='difficult-fighter' id='difficultTomato' src='./assets/tomato.png' alt='Tomato icon'>
-    <img class='difficult-fighter' id='difficultPotato' src='./assets/potato.png' alt='Potato icon'>
+    <img class='difficult-fighter' id='corn' src='./assets/corn.png' alt='Corn icon'>
+    <img class='difficult-fighter' id='carrot' src='./assets/carrot.png' alt='Carrot icon'>
+    <img class='difficult-fighter' id='turnip' src='./assets/turnip.png' alt='Turnip icon'>
+    <img class='difficult-fighter' id='tomato' src='./assets/tomato.png' alt='Tomato icon'>
+    <img class='difficult-fighter' id='potato' src='./assets/potato.png' alt='Potato icon'>
   </section>
   `
 }
@@ -66,29 +71,29 @@ function displayMainPage(event) {
 }
 
 // PLAYER CHOICE FUNCTIONS
-function displayFarmerChoice(event) {
+function displayFarmerClassic(event) {
   var farmerChoice = event.target.id
   if (farmerChoice === 'classicRock') {
     currentGame.farmer.weapon = farmerChoice
     buttonFighter.innerHTML = `
     <img class='classic-fighter' id='classicRock' src='./assets/happy-rocks.png' alt='happy rocks'> `
-    displayComputerChoice();
+    displayComputerClassic();
   }
   if (farmerChoice === 'classicPaper') {
     currentGame.farmer.weapon = farmerChoice
     buttonFighter.innerHTML = `
     <img class='classic-fighter' id='classicPaper' src='./assets/happy-paper.png' alt='happy paper'> `
-    displayComputerChoice();
+    displayComputerClassic();
   }
   if (farmerChoice === 'classicScissors') {
     currentGame.farmer.weapon = farmerChoice
     buttonFighter.innerHTML = `
     <img class='classic-fighter' id='classicScissors' src='./assets/happy-scissors.png' alt='happy scissors'> `
-    displayComputerChoice();
+    displayComputerClassic();
   }
 }
 
-function displayComputerChoice() {
+function displayComputerClassic() {
     currentGame.computer.takeTurn()
   if (currentGame.computer.weapon === 'classicRock') {
     buttonFighter.innerHTML += `
@@ -105,13 +110,74 @@ function displayComputerChoice() {
   evaluateWinner();  // currentGame.changeTurn()
 }
 
+function displayFarmerDifficult(event) {
+  var farmerChoice = event.target.id
+  if (farmerChoice === 'corn') {
+    currentGame.farmer.weapon = farmerChoice
+    buttonFighter.innerHTML = `
+    <img class='difficult-fighter' id='corn' src='./assets/corn.png' alt='Corn icon'> `
+    displayComputerDifficult();
+  }
+  if (farmerChoice === 'carrot') {
+    currentGame.farmer.weapon = farmerChoice
+    buttonFighter.innerHTML = `
+    <img class='difficult-fighter' id='carrot' src='./assets/carrot.png' alt='Carrot icon'> `
+    displayComputerDifficult();
+  }
+  if (farmerChoice === 'turnip') {
+    currentGame.farmer.weapon = farmerChoice
+    buttonFighter.innerHTML = `
+    <img class='difficult-fighter' id='turnip' src='./assets/turnip.png' alt='Turnip icon'> `
+    displayComputerDifficult();
+  }
+  if (farmerChoice === 'tomato') {
+    currentGame.farmer.weapon = farmerChoice
+    buttonFighter.innerHTML = `
+    <img class='difficult-fighter' id='tomato' src='./assets/tomato.png' alt='Tomato icon'> `
+    displayComputerDifficult();
+  }
+  if (farmerChoice === 'potato') {
+    currentGame.farmer.weapon = farmerChoice
+    buttonFighter.innerHTML = `
+    <img class='difficult-fighter' id='potato' src='./assets/potato.png' alt='Potato icon'> `
+    displayComputerDifficult();
+  }
+}
+
+function displayComputerDifficult() {
+    currentGame.computer.takeTurn()
+  if (currentGame.computer.weapon === 'corn') {
+    buttonFighter.innerHTML += `
+    <img class='difficult-fighter' id='corn' src='./assets/corn.png' alt='Corn icon'> `
+  }
+  if (currentGame.computer.weapon === 'carrot') {
+    buttonFighter.innerHTML += `
+    <img class='difficult-fighter' id='carrot' src='./assets/carrot.png' alt='Carrot icon'> `
+  }
+  if (currentGame.computer.weapon === 'turnip') {
+    buttonFighter.innerHTML += `
+    <img class='difficult-fighter' id='turnip' src='./assets/turnip.png' alt='Turnip icon'> `
+  }
+  if (currentGame.computer.weapon === 'tomato') {
+    buttonFighter.innerHTML += `
+    <img class='difficult-fighter' id='tomato' src='./assets/tomato.png' alt='Tomato icon'> `
+  }
+  if (currentGame.computer.weapon === 'potato') {
+    buttonFighter.innerHTML += `
+    <img class='difficult-fighter' id='potato' src='./assets/potato.png' alt='Potato icon'> `
+  }
+  evaluateWinner();
+}
+
+//WIN CONDITION FUNCTIONS
+
 function evaluateWinner() {
-  // if currentGame.type = classic {
-    currentGame.checkWinConditions();
-  // }
-  // else {
-  //   game. check difficult conditions
-  // }
+  if (currentGame.gameType === 'classic') {
+    currentGame.checkClassicWinConditions();
+  }
+  if (currentGame.gameType === 'difficult') {
+    currentGame.checkDifficultWinConditions();
+  }
 }
 
 function farmerWin(){
