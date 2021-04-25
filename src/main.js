@@ -3,7 +3,7 @@ var buttonFighter = document.getElementById('buttonFighter')
 var subtitle = document.getElementById('subtitle')
 var compWins = document.getElementById('compWins')
 var farmWins = document.getElementById('farmWins')
-var leftAside = document.getElementById('leftAside')
+var changeGame = document.getElementById('changeGame')
 
 //GLOBAL VARIABLES
 
@@ -15,9 +15,9 @@ buttonFighter.addEventListener('click', function(event) {
   displayChoices(event)
   displayFarmerChoice(event)
 });
-// leftAside.addEventListener('click', function(event) {
-//   displayMainPage(event)
-// });
+changeGame.addEventListener('click', function(event) {
+  displayMainPage(event)
+});
 
 // EVENT HANDLERS
 
@@ -43,7 +43,7 @@ function displayClassicChoices() {
 }
 
 function displayDifficultChoices() {
-  subtitle.innerText = ` <h3>Choose your fighter!</h3>`
+  subtitle.innerText = `Choose your fighter!`
   buttonFighter.innerHTML = `
   <section class='difficult-choices'>
     <img class='difficult-fighter' id='difficultCorn' src='./assets/corn.png' alt='Corn icon'>
@@ -56,12 +56,13 @@ function displayDifficultChoices() {
 }
 
 function displayChangeGameBtn() {
-  leftAside.innerHTML += `
-  <button id='changeGame'>Change Game</button>`
+  changeGame.innerHTML = `
+  <button id='changeGameBtn'>Change Game</button>`
 }
 
-function displayMainPage() {
-
+function displayMainPage(event) {
+  if (event.target.id === 'changeGameBtn')
+  location.reload();
 }
 
 // PLAYER CHOICE FUNCTIONS
@@ -126,6 +127,8 @@ function computerWin(){
 function gameDraw() {
   subtitle.innerText = `Oh no! It's a draw!`
 }
+
+
 
 
 // renderWinner

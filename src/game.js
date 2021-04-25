@@ -57,9 +57,8 @@ class Game {
   resetGame(){
     console.log('reset')
     // if (currentGame === 'Classic') {
-    console.log(this.farmer)
-    console.log(this.computer)
     displayClassicChoices();
+    displayChangeGameBtn();
     // }
     // method that resets the game board???
     // automatic timeout setTimeout()
