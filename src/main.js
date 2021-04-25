@@ -3,23 +3,26 @@ var buttonFighter = document.getElementById('buttonFighter')
 var subtitle = document.getElementById('subtitle')
 var compWins = document.getElementById('compWins')
 var farmWins = document.getElementById('farmWins')
+var leftAside = document.getElementById('leftAside')
 
 //GLOBAL VARIABLES
 
 var player;
-var currentGame;
+var currentGame = new Game();
 
 // EVENT LISTENERS
 buttonFighter.addEventListener('click', function(event) {
   displayChoices(event)
   displayFarmerChoice(event)
 });
+// leftAside.addEventListener('click', function(event) {
+//   displayMainPage(event)
+// });
 
 // EVENT HANDLERS
 
 function displayChoices(event) {
   var gameChoice = event.target.id
-  currentGame = new Game(gameChoice)
   if (gameChoice === 'classic') {
     displayClassicChoices();
   }
@@ -52,6 +55,16 @@ function displayDifficultChoices() {
   `
 }
 
+function displayChangeGameBtn() {
+  leftAside.innerHTML += `
+  <button id='changeGame'>Change Game</button>`
+}
+
+function displayMainPage() {
+
+}
+
+// PLAYER CHOICE FUNCTIONS
 function displayFarmerChoice(event) {
   var farmerChoice = event.target.id
   if (farmerChoice === 'classicRock') {
