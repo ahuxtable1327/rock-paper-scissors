@@ -30,6 +30,7 @@ function displayChoices(event) {
   }
   if (gameChoice === 'difficult') {
     currentGame.gameType = gameChoice;
+    console.log(currentGame)
     displayDifficultChoices();
   }
   currentGame.determineFighters();
@@ -165,18 +166,18 @@ function displayComputerDifficult() {
     buttonFighter.innerHTML += `
     <img class='difficult-fighter' id='potato' src='./assets/potato.png' alt='Potato icon'> `
   }
-  // evaluateWinner();
+  evaluateWinner();
 }
 
 //WIN CONDITION FUNCTIONS
 
 function evaluateWinner() {
-  // if currentGame.type = classic {
+  if (currentGame.gameType === 'classic') {
     currentGame.checkClassicWinConditions();
-  // }
-  // else {
-  //   game. check difficult conditions
-  // }
+  }
+  if (currentGame.gameType === 'difficult') {
+    currentGame.checkDifficultWinConditions();
+  }
 }
 
 function farmerWin(){
