@@ -10,11 +10,7 @@ class Game {
     this.classicFighters = ['classicRock', 'classicPaper', 'classicScissors'];
     // this.difficultFighters = []
 
-
-
-
   }
-
 
   determineClassicWinner(player1, player2) {
     if (player1.weapon === 'classicPaper' && player2.weapon === 'classicRock' ||
@@ -22,7 +18,7 @@ class Game {
         player1.weapon === 'classicRock' && player2.weapon === 'classicScissors') {
         return true
       } else {
-        return false;
+        return false
       }
 
     // player.wins++
@@ -35,37 +31,39 @@ class Game {
     // saveToStorage
   }
 
-  // checkWinConditions(){
-  //   var checkFarmer = this.determineClassicWinner(this.farmer, this.computer)
-  //   var checkComputer = this.determineClassicWinner(this.computer, this.farmer)
-  //
-  //   if (checkFarmer) {
-  //     console.log('Farmer!')
-  //     this.farmer.wins++
-  //     // renderFarmer(){
-  //
-  //   }
-  //     //
-  //       //  innerhtml = '
-  //       // '
-  //   }
-  //   if (checkComputer) {
-  //     console.log('Computer!')
-  //     //this.computer.wins++
-  //     // return computer wins
-  //   }
-  //   else {
-  //     // debugger
-  //     console.log('Draw!')
-  //     // return
-  //   }
-  // }
+   checkWinConditions(){
+    var checkFarmer = this.determineClassicWinner(this.farmer, this.computer)
+    var checkComputer = this.determineClassicWinner(this.computer, this.farmer)
 
+    if (checkFarmer) {
+      this.farmer.wins++;
+      farmerWin();
+      console.log(this.farmer.wins);
+      setTimeout(this.resetGame.bind(this), 2000);
 
+      console.log(this.farmer.wins)
+    }
+    if (checkComputer) {
+      this.computer.wins++;
+      computerWin();
+      setTimeout(this.resetGame.bind(this), 2000);
+      console.log(this.computer.wins)
+    }
+    if (!checkFarmer && !checkComputer)  {
+      gameDraw();
+      setTimeout(this.resetGame.bind(this), 2000)
+    }
+  }
   resetGame(){
+    console.log('reset')
+    // if (currentGame === 'Classic') {
+    console.log(this.farmer)
+    console.log(this.computer)
+    displayClassicChoices();
+    // }
     // method that resets the game board???
     // automatic timeout setTimeout()
-    // window reload to main page
+    // window reload to game  page
   }
 }
 var game1 = new Game('Classic');
