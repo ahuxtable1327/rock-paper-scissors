@@ -7,9 +7,19 @@ class Game {
     this.gameType = gameType;
     this.isFarmersTurn = true;
     this.isComputerTurn = false;
-    this.classicFighters = ['classicRock', 'classicPaper', 'classicScissors'];
+    this.fighters = [];
+    // this.classicFighters = ['classicRock', 'classicPaper', 'classicScissors'];
     // this.difficultFighters = []
 
+  }
+
+  determineFighters() {
+    if (this.gameType === 'classic') {
+      this.fighters.push('classicRock', 'classicPaper', 'classicScissors')
+    }
+    if (this.gameType === 'difficult') {
+      this.fighters.push('corn', 'carrot', 'turnip', 'tomato', 'potato')
+    }
   }
 
   determineClassicWinner(player1, player2) {
@@ -31,23 +41,19 @@ class Game {
     // saveToStorage
   }
 
-   checkWinConditions(){
+   checkClassicWinConditions(){
     var checkFarmer = this.determineClassicWinner(this.farmer, this.computer)
     var checkComputer = this.determineClassicWinner(this.computer, this.farmer)
 
     if (checkFarmer) {
       this.farmer.wins++;
       farmerWin();
-      console.log(this.farmer.wins);
       setTimeout(this.resetGame.bind(this), 2000);
-
-      console.log(this.farmer.wins)
     }
     if (checkComputer) {
       this.computer.wins++;
       computerWin();
       setTimeout(this.resetGame.bind(this), 2000);
-      console.log(this.computer.wins)
     }
     if (!checkFarmer && !checkComputer)  {
       gameDraw();
