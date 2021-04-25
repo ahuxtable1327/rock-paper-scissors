@@ -8,30 +8,24 @@ class Game {
     this.isFarmersTurn = true;
     this.isComputerTurn = false;
     this.fighters = [];
-    // this.classicFighters = ['classicRock', 'classicPaper', 'classicScissors'];
-    // this.difficultFighters = []
-
   }
-
   determineFighters() {
     if (this.gameType === 'classic') {
-      this.fighters.push('classicRock', 'classicPaper', 'classicScissors')
+      this.fighters.push('classicRock', 'classicPaper', 'classicScissors');
     }
     if (this.gameType === 'difficult') {
-      this.fighters.push('corn', 'carrot', 'turnip', 'tomato', 'potato')
+      this.fighters.push('corn', 'carrot', 'turnip', 'tomato', 'potato');
     }
-  }
-
+  };
   determineClassicWinner(player1, player2) {
     if (player1.weapon === 'classicPaper' && player2.weapon === 'classicRock' ||
         player1.weapon === 'classicScissors' && player2.weapon === 'classicPaper' ||
         player1.weapon === 'classicRock' && player2.weapon === 'classicScissors') {
-        return true
+        return true;
       } else {
-        return false
+        return false;
       }
-    }
-
+    };
   determineDifficultWinner(player1, player2) {
     if (player1.weapon === 'tomato' && player2.weapon === 'turnip' ||
         player1.weapon === 'tomato' && player2.weapon === 'potato' ||
@@ -43,20 +37,12 @@ class Game {
         player1.weapon === 'carrot' && player2.weapon === 'tomato' ||
         player1.weapon === 'potato' && player2.weapon === 'corn' ||
         player1.weapon === 'potato' && player2.weapon === 'carrot') {
-        return true
+        return true;
       } else {
-        return false
+        return false;
   }
-    // player.wins++
-    // method that checks the existing data on the game board
-    // and checks the rules for the game being played
-    // and returns the winner.
-    // increments the wins by 1
-    // assigns wins to player in player class
-    //  method invoked in main JS and winner is displayed
     // saveToStorage
-  }
-
+  };
    checkClassicWinConditions(){
     var checkFarmer = this.determineClassicWinner(this.farmer, this.computer)
     var checkComputer = this.determineClassicWinner(this.computer, this.farmer)
@@ -71,12 +57,11 @@ class Game {
       computerWin();
       setTimeout(this.resetGame.bind(this), 2000);
     }
-    if (!checkFarmer && !checkComputer)  {
+    if (!checkFarmer && !checkComputer) {
       gameDraw();
       setTimeout(this.resetGame.bind(this), 2000)
     }
-  }
-
+  };
    checkDifficultWinConditions(){
     var checkFarmer = this.determineDifficultWinner(this.farmer, this.computer)
     var checkComputer = this.determineDifficultWinner(this.computer, this.farmer)
@@ -93,10 +78,9 @@ class Game {
     }
     if (!checkFarmer && !checkComputer)  {
       gameDraw();
-      setTimeout(this.resetGame.bind(this), 2000)
+      setTimeout(this.resetGame.bind(this), 2000);
     }
-  }
-
+  };
   resetGame(){
     console.log('reset')
     if (this.gameType === 'classic') {
@@ -107,15 +91,9 @@ class Game {
     displayDifficultChoices();
     displayChangeGameBtn();
   }
-
-  }
+  };
 }
-var game1 = new Game('Classic');
-// computer gets random index when player 1
-// chooses a player
 
 function getRandomIndex(array) {
 return Math.floor(Math.random() * array.length)
 }
-
-console.log(game1);
