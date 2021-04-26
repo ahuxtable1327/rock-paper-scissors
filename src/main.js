@@ -111,6 +111,7 @@ function displayComputerClassic() {
 }
 
 function displayFarmerDifficult(event) {
+  //if farmer choice = 'farmerChoice id='${farmerChoice}'
   var farmerChoice = event.target.id
   if (farmerChoice === 'corn') {
     currentGame.farmer.weapon = farmerChoice
@@ -146,6 +147,7 @@ function displayFarmerDifficult(event) {
 
 function displayComputerDifficult() {
     currentGame.computer.takeTurn()
+    console.log(currentGame)
   if (currentGame.computer.weapon === 'corn') {
     buttonFighter.innerHTML += `
     <img class='difficult-fighter' id='corn' src='./assets/corn.png' alt='Corn icon'> `
@@ -183,11 +185,13 @@ function evaluateWinner() {
 function farmerWin(){
   subtitle.innerText = `‍${currentGame.farmer.token}Farmer Jann Wins!‍${currentGame.farmer.token}`
   farmWins.innerHTML = `${currentGame.farmer.wins}`
+  currentGame.farmer.saveWinsToStorage();
 }
 
 function computerWin(){
   subtitle.innerText = `‍${currentGame.computer.token}Computer Wins!${currentGame.computer.token}`
   compWins.innerHTML = `${currentGame.computer.wins}`
+  currentGame.computer.saveWinsToStorage();
 }
 
 function gameDraw() {
