@@ -4,6 +4,8 @@ var subtitle = document.getElementById('subtitle')
 var compWins = document.getElementById('compWins')
 var farmWins = document.getElementById('farmWins')
 var changeGame = document.getElementById('changeGame')
+// var leftAside = document.getElementById('leftAside')
+// var rightAside = document.getElementById('rightAside')
 
 //GLOBAL VARIABLES
 
@@ -19,6 +21,7 @@ buttonFighter.addEventListener('click', function(event) {
 changeGame.addEventListener('click', function(event) {
   displayMainPage(event)
 });
+window.addEventListener('load', renderWins)
 
 // EVENT HANDLERS
 
@@ -111,6 +114,7 @@ function displayComputerClassic() {
 }
 
 function displayFarmerDifficult(event) {
+  //if farmer choice = 'farmerChoice id='${farmerChoice}'
   var farmerChoice = event.target.id
   if (farmerChoice === 'corn') {
     currentGame.farmer.weapon = farmerChoice
@@ -146,6 +150,7 @@ function displayFarmerDifficult(event) {
 
 function displayComputerDifficult() {
     currentGame.computer.takeTurn()
+    console.log(currentGame)
   if (currentGame.computer.weapon === 'corn') {
     buttonFighter.innerHTML += `
     <img class='difficult-fighter' id='corn' src='./assets/corn.png' alt='Corn icon'> `
@@ -183,15 +188,27 @@ function evaluateWinner() {
 function farmerWin(){
   subtitle.innerText = `‍${currentGame.farmer.token}Farmer Jann Wins!‍${currentGame.farmer.token}`
   farmWins.innerHTML = `${currentGame.farmer.wins}`
+  currentGame.farmer.saveWinsToStorage();
 }
 
 function computerWin(){
   subtitle.innerText = `‍${currentGame.computer.token}Computer Wins!${currentGame.computer.token}`
   compWins.innerHTML = `${currentGame.computer.wins}`
+  currentGame.computer.saveWinsToStorage();
 }
 
 function gameDraw() {
   subtitle.innerText = `Oh no! It's a draw!`
+}
+
+function renderWins() {
+  console.log(localStorage)
+  currentGame.farmer.retrieveWinsFromStorage();
+  currentGame.computer.retrieveWinsFromStorage();
+  // farmWins.innerHTML = ''
+  // compWins.innerHTML = ''
+  farmWins.innerHTML = `${currentGame.farmer.wins}`
+  compWins.innerHTML = `${currentGame.computer.wins}`
 }
 
 

@@ -6,10 +6,25 @@ class Player {
     this.weapon = null;
   }
   saveWinsToStorage(){
-    localStorage.setItem();
+    var playerName = this.name
+    var playerWins = this.wins
+    localStorage.setItem(playerName, playerWins);
+    // stringify???
   };
   retrieveWinsFromStorage() {
-    localStorage.getItem();
+    var playerName = this.name
+    this.wins = localStorage.getItem(playerName)
+    // for (var i = 0; i < localStorage.length; i++) {
+    //   if (localStorage[i] === 'Farmer Jann') {
+    //     var farm = localStorage.getItem(localStorage[i])
+    //     console.log(localStorage[i])
+    //     this.wins = farm
+    //   } else {
+    //     console.log(localStorage[i])
+    //     var comp = localStorage.getItem(localStorage[i])
+    //     this.wins = comp
+    //   }
+    //   return this.wins
   };
   takeTurn() {
   if (!currentGame.isComputerTurn) {
@@ -21,27 +36,5 @@ class Player {
    currentGame.isFarmersTurn;
    !currentGame.isComputerTurn;
  }
-
-    // when a user clicks on a
-    // then game.changeTurn()
-    // computer takes turn (random index)
-    // then game.determineWinner()
-    // if (getrandomindex(classicchoices).id)
-
   };
 }
-
-
-
-
-
-
-// on page load, create two instances of player
-//
-
-// take turn method tells computer to getRandomIndex
-// once computer does that and the game determines a winner
-// the take turn method refreshes the page to make it the human
-// players turn.
-//
-// module.exports = Player;
