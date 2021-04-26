@@ -18,7 +18,6 @@ var currentGame = new Game();
 buttonFighter.addEventListener('click', function(event) {
   displayChoices(event)
   displayFarmerChoice(event)
-  // displayFarmerDifficult(event)
 });
 changeGame.addEventListener('click', function(event) {
   displayMainPage(event)
@@ -97,17 +96,8 @@ function displayComputerChoice() {
 //WIN CONDITION FUNCTIONS
 
 function playGame() {
-  evaluateWinner();
+  currentGame.checkWinConditions();
   displayWinner();
-}
-
-function evaluateWinner() {
-  if (currentGame.gameType === 'classic') {
-    currentGame.checkClassicWinConditions();
-  }
-  if (currentGame.gameType === 'difficult') {
-    currentGame.checkDifficultWinConditions();
-  }
 }
 
 function displayWinner() {
@@ -122,7 +112,6 @@ function displayWinner() {
   }
     setTimeout(resetGame, 2000);
 }
-
 
 function resetGame(){
   if (currentGame.gameType === 'classic') {

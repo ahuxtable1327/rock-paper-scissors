@@ -48,40 +48,23 @@ class Game {
       } else {
         return false;
       }
-    // saveToStorage
   };
-   checkClassicWinConditions(){
-    var checkFarmer = this.determineClassicWinner(this.farmer, this.computer)
-    var checkComputer = this.determineClassicWinner(this.computer, this.farmer)
+  checkWinConditions(){
+   var checkFarmer = this.determineClassicWinner(this.farmer, this.computer)
+   var checkComputer = this.determineClassicWinner(this.computer, this.farmer)
+   var checkDifficultFarmer = this.determineDifficultWinner(this.farmer, this.computer)
+   var checkDifficultComputer = this.determineDifficultWinner(this.computer, this.farmer)
 
-    if (checkFarmer) {
-      this.farmer.wins++;
-      this.winner = this.farmer
-    }
-    if (checkComputer) {
-      this.computer.wins++;
-      this.winner = this.computer
-    }
-    if (!checkFarmer && !checkComputer) {
-      this.winner = undefined
-    }
-  };
-
-   checkDifficultWinConditions(){
-    var checkFarmer = this.determineDifficultWinner(this.farmer, this.computer)
-    var checkComputer = this.determineDifficultWinner(this.computer, this.farmer)
-
-    if (checkFarmer) {
-      this.farmer.wins++;
-      this.winner = this.farmer
-    }
-    if (checkComputer) {
-      this.computer.wins++;
-      this.winner = this.computer
-    }
-    if (!checkFarmer && !checkComputer)  {
-      this.winner = undefined
-    }
-  };
+   if (checkFarmer || checkDifficultFarmer) {
+     this.farmer.wins++;
+     this.winner = this.farmer
+   }
+   if (checkComputer || checkDifficultComputer) {
+     this.computer.wins++;
+     this.winner = this.computer
+   }
+   if (!checkFarmer && !checkComputer && !checkDifficultFarmer && !checkDifficultComputer ) {
+     this.winner = undefined
+   }
+ };
 }
-// reset game in main js. set timeout? definitely call computerWin, gameDraw and farmerWin in main JS
