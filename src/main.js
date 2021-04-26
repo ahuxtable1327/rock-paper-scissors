@@ -4,6 +4,8 @@ var subtitle = document.getElementById('subtitle')
 var compWins = document.getElementById('compWins')
 var farmWins = document.getElementById('farmWins')
 var changeGame = document.getElementById('changeGame')
+// var leftAside = document.getElementById('leftAside')
+// var rightAside = document.getElementById('rightAside')
 
 //GLOBAL VARIABLES
 
@@ -19,6 +21,7 @@ buttonFighter.addEventListener('click', function(event) {
 changeGame.addEventListener('click', function(event) {
   displayMainPage(event)
 });
+window.addEventListener('load', renderWins)
 
 // EVENT HANDLERS
 
@@ -196,6 +199,16 @@ function computerWin(){
 
 function gameDraw() {
   subtitle.innerText = `Oh no! It's a draw!`
+}
+
+function renderWins() {
+  console.log(localStorage)
+  currentGame.farmer.retrieveWinsFromStorage();
+  currentGame.computer.retrieveWinsFromStorage();
+  // farmWins.innerHTML = ''
+  // compWins.innerHTML = ''
+  farmWins.innerHTML = `${currentGame.farmer.wins}`
+  compWins.innerHTML = `${currentGame.computer.wins}`
 }
 
 

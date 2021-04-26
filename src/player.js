@@ -9,10 +9,22 @@ class Player {
     var playerName = this.name
     var playerWins = this.wins
     localStorage.setItem(playerName, playerWins);
+    // stringify???
   };
   retrieveWinsFromStorage() {
-
-    localStorage.getItem();
+    var playerName = this.name
+    this.wins = localStorage.getItem(playerName)
+    // for (var i = 0; i < localStorage.length; i++) {
+    //   if (localStorage[i] === 'Farmer Jann') {
+    //     var farm = localStorage.getItem(localStorage[i])
+    //     console.log(localStorage[i])
+    //     this.wins = farm
+    //   } else {
+    //     console.log(localStorage[i])
+    //     var comp = localStorage.getItem(localStorage[i])
+    //     this.wins = comp
+    //   }
+    //   return this.wins
   };
   takeTurn() {
   if (!currentGame.isComputerTurn) {

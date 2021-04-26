@@ -93,6 +93,7 @@ class Game {
   }
   };
 }
+// reset game in main js. set timeout? definitely call computerWin, gameDraw and farmerWin in main JS
 
 function getRandomIndex(array) {
 return Math.floor(Math.random() * array.length)
