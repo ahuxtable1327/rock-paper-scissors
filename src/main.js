@@ -28,15 +28,13 @@ window.addEventListener('load', renderWins)
 function displayChoices(event) {
   var gameChoice = event.target.id
   if (gameChoice === 'classic') {
-    currentGame.gameType = gameChoice;
+    currentGame.determineGameType(gameChoice);
     displayClassicChoices();
   }
   if (gameChoice === 'difficult') {
-    currentGame.gameType = gameChoice;
-    console.log(currentGame)
+    currentGame.determineGameType(gameChoice);
     displayDifficultChoices();
   }
-  currentGame.determineFighters();
 }
 
 function displayClassicChoices() {
@@ -97,7 +95,7 @@ function displayFarmerClassic(event) {
 }
 
 function displayComputerClassic() {
-    currentGame.computer.takeTurn()
+    currentGame.computer.takeTurn();
   if (currentGame.computer.weapon === 'classicRock') {
     buttonFighter.innerHTML += `
     <img class='classic-fighter' id='classicRock' src='./assets/happy-rocks.png' alt='happy rocks'>`
