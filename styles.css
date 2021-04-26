@@ -34,7 +34,7 @@ main {
 /* GAME CONSOLE */
 
 h3 {
-  
+
 }
 
 .game-console {
@@ -58,15 +58,12 @@ h3 {
   align-self: center;
 }
 
-.classic-fighter {
-  height: 200px;
-  width: 200px;
+.fighter {
+  height: 175px;
+  width: 175px;
 }
 
-.difficult-fighter {
-  height: 150px;
-  width: 150px;
-}
+
 
 
 
