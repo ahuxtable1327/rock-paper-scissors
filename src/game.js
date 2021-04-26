@@ -10,7 +10,8 @@ class Game {
     this.fighters = [];
     this.classicFighters = ['classicRock', 'classicPaper', 'classicScissors'];
     this.difficultFighters = ['corn', 'carrot', 'turnip', 'tomato', 'potato'];
-  }
+    this.winner = undefined;
+  } ;
   determineGameType(gameType) {
     this.gameType = gameType;
     this.determineFighters();
@@ -46,7 +47,7 @@ class Game {
         return true;
       } else {
         return false;
-  }
+      }
     // saveToStorage
   };
    checkClassicWinConditions(){
@@ -55,30 +56,31 @@ class Game {
 
     if (checkFarmer) {
       this.farmer.wins++;
-      farmerWin();
+      this.winner = this.farmer
     }
     if (checkComputer) {
       this.computer.wins++;
-      computerWin();
+      this.winner = this.computer
     }
     if (!checkFarmer && !checkComputer) {
-      gameDraw();
+      this.winner = undefined
     }
   };
+
    checkDifficultWinConditions(){
     var checkFarmer = this.determineDifficultWinner(this.farmer, this.computer)
     var checkComputer = this.determineDifficultWinner(this.computer, this.farmer)
 
     if (checkFarmer) {
       this.farmer.wins++;
-      farmerWin();
+      this.winner = this.farmer
     }
     if (checkComputer) {
       this.computer.wins++;
-      computerWin();
+      this.winner = this.computer
     }
     if (!checkFarmer && !checkComputer)  {
-      gameDraw();
+      this.winner = undefined
     }
   };
 }

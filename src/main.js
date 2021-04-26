@@ -4,15 +4,17 @@ var subtitle = document.getElementById('subtitle')
 var compWins = document.getElementById('compWins')
 var farmWins = document.getElementById('farmWins')
 var changeGame = document.getElementById('changeGame')
-// var leftAside = document.getElementById('leftAside')
-// var rightAside = document.getElementById('rightAside')
+// var classicBtn = document.getElementById('classic')
+// var difficultBtn = document.getElementById('difficult')
 
 //GLOBAL VARIABLES
 
-var player;
+// var player;
 var currentGame = new Game();
 
-// EVENT LISTENERS
+// // EVENT LISTENERS
+// classicBtn.addEventListener('click', displayChoices)
+// difficultBtn.addEventListener('click', displayChoices )
 buttonFighter.addEventListener('click', function(event) {
   displayChoices(event)
   displayFarmerClassic(event)
@@ -108,7 +110,7 @@ function displayComputerClassic() {
     buttonFighter.innerHTML += `
     <img class='classic-fighter' id='classicScissors' src='./assets/happy-scissors.png' alt='happy scissors'>`
   }
-  evaluateWinner();  // currentGame.changeTurn()
+  playGame();  // currentGame.changeTurn()
 }
 
 function displayFarmerDifficult(event) {
@@ -117,7 +119,7 @@ function displayFarmerDifficult(event) {
   if (farmerChoice === 'corn') {
     currentGame.farmer.weapon = farmerChoice
     buttonFighter.innerHTML = `
-    <img class='difficult-fighter' id='corn' src='./assets/corn.png' alt='Corn icon'> `
+    <img class='difficult-fighter' id='corn' src='./assets/corn.png' alt='corn' icon'> `
     displayComputerDifficult();
   }
   if (farmerChoice === 'carrot') {
@@ -169,10 +171,15 @@ function displayComputerDifficult() {
     buttonFighter.innerHTML += `
     <img class='difficult-fighter' id='potato' src='./assets/potato.png' alt='Potato icon'> `
   }
-  evaluateWinner();
+  playGame();
 }
 
 //WIN CONDITION FUNCTIONS
+
+function playGame() {
+  evaluateWinner();
+  displayWinner();
+}
 
 function evaluateWinner() {
   if (currentGame.gameType === 'classic') {
@@ -181,26 +188,22 @@ function evaluateWinner() {
   if (currentGame.gameType === 'difficult') {
     currentGame.checkDifficultWinConditions();
   }
+  // displayWinner();
 }
 
-function farmerWin(){
-  subtitle.innerText = `‍${currentGame.farmer.token}Farmer Jann Wins!‍${currentGame.farmer.token}`
-  farmWins.innerHTML = `${currentGame.farmer.wins}`
-  currentGame.farmer.saveWinsToStorage();
+function displayWinner() {
+  if (currentGame.winner !== undefined) {
+    subtitle.innerText = `${currentGame.winner.token}${currentGame.winner.name} wins!${currentGame.winner.token}`
+    farmWins.innerHTML = `${currentGame.farmer.wins}`
+    compWins.innerHTML = `${currentGame.computer.wins}`
+    currentGame.farmer.saveWinsToStorage();
+    currentGame.computer.saveWinsToStorage();
+  } else {
+    subtitle.innerText = `Oh no! It's a draw!`
+  }
   setTimeout(resetGame, 2000);
 }
 
-function computerWin(){
-  subtitle.innerText = `‍${currentGame.computer.token}Computer Wins!${currentGame.computer.token}`
-  compWins.innerHTML = `${currentGame.computer.wins}`
-  currentGame.computer.saveWinsToStorage();
-  setTimeout(resetGame, 2000);
-}
-
-function gameDraw() {
-  subtitle.innerText = `Oh no! It's a draw!`
-  setTimeout(resetGame, 2000)
-}
 
 function resetGame(){
   if (currentGame.gameType === 'classic') {
@@ -214,11 +217,8 @@ function resetGame(){
 };
 
 function renderWins() {
-  console.log(localStorage)
   currentGame.farmer.retrieveWinsFromStorage();
   currentGame.computer.retrieveWinsFromStorage();
-  // farmWins.innerHTML = ''
-  // compWins.innerHTML = ''
   farmWins.innerHTML = `${currentGame.farmer.wins}`
   compWins.innerHTML = `${currentGame.computer.wins}`
 }
