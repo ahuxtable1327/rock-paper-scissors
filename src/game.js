@@ -8,13 +8,19 @@ class Game {
     this.isFarmersTurn = true;
     this.isComputerTurn = false;
     this.fighters = [];
+    this.classicFighters = ['classicRock', 'classicPaper', 'classicScissors'];
+    this.difficultFighters = ['corn', 'carrot', 'turnip', 'tomato', 'potato'];
+  }
+  determineGameType(gameType) {
+    this.gameType = gameType;
+    this.determineFighters();
   }
   determineFighters() {
     if (this.gameType === 'classic') {
-      this.fighters.push('classicRock', 'classicPaper', 'classicScissors');
+    this.fighters = this.classicFighters;
     }
     if (this.gameType === 'difficult') {
-      this.fighters.push('corn', 'carrot', 'turnip', 'tomato', 'potato');
+      this.fighters = this.difficultFighters;
     }
   };
   determineClassicWinner(player1, player2) {
@@ -94,7 +100,3 @@ class Game {
   };
 }
 // reset game in main js. set timeout? definitely call computerWin, gameDraw and farmerWin in main JS
-
-function getRandomIndex(array) {
-return Math.floor(Math.random() * array.length)
-}
