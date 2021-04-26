@@ -56,16 +56,13 @@ class Game {
     if (checkFarmer) {
       this.farmer.wins++;
       farmerWin();
-      setTimeout(this.resetGame.bind(this), 2000);
     }
     if (checkComputer) {
       this.computer.wins++;
       computerWin();
-      setTimeout(this.resetGame.bind(this), 2000);
     }
     if (!checkFarmer && !checkComputer) {
       gameDraw();
-      setTimeout(this.resetGame.bind(this), 2000)
     }
   };
    checkDifficultWinConditions(){
@@ -75,28 +72,14 @@ class Game {
     if (checkFarmer) {
       this.farmer.wins++;
       farmerWin();
-      setTimeout(this.resetGame.bind(this), 2000);
     }
     if (checkComputer) {
       this.computer.wins++;
       computerWin();
-      setTimeout(this.resetGame.bind(this), 2000);
     }
     if (!checkFarmer && !checkComputer)  {
       gameDraw();
-      setTimeout(this.resetGame.bind(this), 2000);
     }
-  };
-  resetGame(){
-    console.log('reset')
-    if (this.gameType === 'classic') {
-    displayClassicChoices();
-    displayChangeGameBtn();
-  }
-    if (this.gameType === 'difficult') {
-    displayDifficultChoices();
-    displayChangeGameBtn();
-  }
   };
 }
 // reset game in main js. set timeout? definitely call computerWin, gameDraw and farmerWin in main JS

@@ -187,17 +187,31 @@ function farmerWin(){
   subtitle.innerText = `‍${currentGame.farmer.token}Farmer Jann Wins!‍${currentGame.farmer.token}`
   farmWins.innerHTML = `${currentGame.farmer.wins}`
   currentGame.farmer.saveWinsToStorage();
+  setTimeout(resetGame, 2000);
 }
 
 function computerWin(){
   subtitle.innerText = `‍${currentGame.computer.token}Computer Wins!${currentGame.computer.token}`
   compWins.innerHTML = `${currentGame.computer.wins}`
   currentGame.computer.saveWinsToStorage();
+  setTimeout(resetGame, 2000);
 }
 
 function gameDraw() {
   subtitle.innerText = `Oh no! It's a draw!`
+  setTimeout(resetGame, 2000)
 }
+
+function resetGame(){
+  if (currentGame.gameType === 'classic') {
+  displayClassicChoices();
+  displayChangeGameBtn();
+}
+  if (currentGame.gameType === 'difficult') {
+  displayDifficultChoices();
+  displayChangeGameBtn();
+}
+};
 
 function renderWins() {
   console.log(localStorage)
