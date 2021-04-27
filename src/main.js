@@ -1,15 +1,13 @@
 // QUERY SELECTORS
 var buttonFighter = document.getElementById('buttonFighter')
 var subtitle = document.getElementById('subtitle')
-var compWins = document.getElementById('compWins')
+var tractorWins = document.getElementById('tractorWins')
 var farmWins = document.getElementById('farmWins')
 var changeGame = document.getElementById('changeGame')
 var classicBtn = document.getElementById('classic')
 var difficultBtn = document.getElementById('difficult')
 
 //GLOBAL VARIABLES
-
-// var player;
 var currentGame = new Game();
 
 // // EVENT LISTENERS
@@ -21,9 +19,7 @@ changeGame.addEventListener('click', function(event) {
 });
 window.addEventListener('load', renderWins)
 
-
 // EVENT HANDLERS
-
 function displayClassicChoices() {
   currentGame.determineGameType('classic');
   subtitle.innerText = `Choose your fighter!`
@@ -56,27 +52,28 @@ function displayChangeGameBtn() {
 }
 
 function displayMainPage(event) {
-  if (event.target.id === 'changeGameBtn')
-  location.reload();
+  if (event.target.id === 'changeGameBtn') {
+    location.reload();
+  }
 }
 
 // PLAYER CHOICE FUNCTIONS
 function displayFarmerChoice(event) {
-  var farmerChoice = event.target.closest('img').id
+  var farmerChoice = event.target.closest('img').id;
   if (farmerChoice === farmerChoice) {
-    currentGame.farmer.weapon = farmerChoice
+    currentGame.farmer.weapon = farmerChoice;
     buttonFighter.innerHTML = `
     <img class='fighter' id='${farmerChoice}' src='./assets/${farmerChoice}.png' alt='${farmerChoice} icon'> `
-    displayComputerChoice();
+    displayTractorChoice();
   }
 }
 
-function displayComputerChoice() {
-    currentGame.computer.takeTurn();
-    var computerChoice = currentGame.computer.weapon
-  if (computerChoice === computerChoice) {
+function displayTractorChoice() {
+  currentGame.tractor.takeTurn();
+  var tractorChoice = currentGame.tractor.weapon;
+  if (tractorChoice === tractorChoice) {
     buttonFighter.innerHTML += `
-    <img class='fighter' id='${computerChoice}' src='./assets/${computerChoice}.png' alt='${computerChoice}'>`
+    <img class='fighter' id='${tractorChoice}' src='./assets/${tractorChoice}.png' alt='${tractorChoice}'>`
   }
   playGame();
 }
@@ -92,22 +89,22 @@ function displayWinner() {
   if (currentGame.winner !== undefined) {
     subtitle.innerText = `${currentGame.winner.token}${currentGame.winner.name} wins!${currentGame.winner.token}`
     farmWins.innerHTML = `${currentGame.farmer.wins}`
-    compWins.innerHTML = `${currentGame.computer.wins}`
+    tractorWins.innerHTML = `${currentGame.tractor.wins}`
     currentGame.farmer.saveWinsToStorage();
-    currentGame.computer.saveWinsToStorage();
+    currentGame.tractor.saveWinsToStorage();
   } else {
       subtitle.innerText = `Oh no! It's a draw!`
   }
-    disableClickEvent();
-    setTimeout(resetGame, 2000);
+  disableClickEvent();
+  setTimeout(resetGame, 2000);
 }
 
 function disableClickEvent() {
-  buttonFighter.removeEventListener('click', displayFarmerChoice)
+  buttonFighter.removeEventListener('click', displayFarmerChoice);
 }
 
 function resetGame(){
-  buttonFighter.addEventListener('click', displayFarmerChoice)
+  buttonFighter.addEventListener('click', displayFarmerChoice);
   if (currentGame.gameType === 'classic') {
     displayClassicChoices();
     displayChangeGameBtn();
@@ -119,8 +116,10 @@ function resetGame(){
 };
 
 function renderWins() {
-  currentGame.farmer.retrieveWinsFromStorage();
-  currentGame.computer.retrieveWinsFromStorage();
-  farmWins.innerHTML = `${currentGame.farmer.wins}`
-  compWins.innerHTML = `${currentGame.computer.wins}`
+  if (localStorage.length > 0) {
+    currentGame.farmer.retrieveWinsFromStorage();
+    currentGame.tractor.retrieveWinsFromStorage();
+    farmWins.innerHTML = `${currentGame.farmer.wins}`
+    tractorWins.innerHTML = `${currentGame.tractor.wins}`
+  }
 }

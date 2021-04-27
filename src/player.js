@@ -15,14 +15,14 @@ class Player {
     this.wins = localStorage.getItem(playerName)
   };
   takeTurn() {
-    currentGame.isComputerTurn = true;
+    currentGame.isTractorTurn = true;
     currentGame.isFarmersTurn = false;
-  if (currentGame.isComputerTurn) {
-    this.weapon = currentGame.fighters[getRandomIndex(currentGame.fighters)];
- } else {
-   currentGame.isFarmersTurn;
-   !currentGame.isComputerTurn;
- }
+    if (currentGame.isTractorTurn) {
+      this.weapon = currentGame.fighters[getRandomIndex(currentGame.fighters)];
+    } else {
+      currentGame.isFarmersTurn;
+      !currentGame.isTractorTurn;
+    }
   };
 }
 

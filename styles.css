@@ -21,6 +21,7 @@ body {
 
 header {
   background-color: #6bd1ad;
+  width: 100vw;
 }
 
 main {
@@ -33,23 +34,38 @@ main {
 
 /* GAME CONSOLE */
 
-h3 {
-
-}
-
 .game-console {
   background-color: #b8b8b8;
   width: 60vw;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  align-items: center;
+}
+
+h3 {
+  margin-top: 5rem;
+  font-size: 2.5rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.classic-choice,
+.difficult-choice {
+  font-size: 1rem;
+}
+
+.button-fighter {
+  margin-top: 4rem;
 }
 
 .classic,
 .difficult {
   background-color: #6bd1ad;
-  height: 20vh;
-  width: 20vw;
+  height: 25vh;
+  width: 25vw;
   margin: 1rem;
   display: flex;
   justify-content: center;
@@ -64,13 +80,25 @@ h3 {
 }
 
 
-
-
-
 /* PLAYER CONSOLE */
 
 .left-aside,
 .right-aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #d6d6d6;
   width: 20vw;
+  font-weight: 700;
+}
+
+h2{
+  margin-bottom: 0.3rem;
+}
+
+.human-player,
+.tractor-player {
+  font-size: 5rem;
+  margin: 1rem 0 .4rem 0;
+
 }

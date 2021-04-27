@@ -1,12 +1,10 @@
-// var Player = require('./player.js');
-
 class Game {
   constructor(gameType){
     this.farmer = new Player({name:'Farmer Jann', token:'👩‍🌾'});
-    this.computer = new Player({name: 'Computer', token:'💻'});
+    this.tractor = new Player({name: 'Tractor', token:'🚜'});
     this.gameType = gameType;
     this.isFarmersTurn = true;
-    this.isComputerTurn = false;
+    this.isTractorTurn = false;
     this.fighters = [];
     this.classicFighters = ['classicRock', 'classicPaper', 'classicScissors'];
     this.difficultFighters = ['corn', 'carrot', 'turnip', 'tomato', 'potato'];
@@ -50,20 +48,20 @@ class Game {
       }
   };
   checkWinConditions(){
-   var checkFarmer = this.determineClassicWinner(this.farmer, this.computer)
-   var checkComputer = this.determineClassicWinner(this.computer, this.farmer)
-   var checkDifficultFarmer = this.determineDifficultWinner(this.farmer, this.computer)
-   var checkDifficultComputer = this.determineDifficultWinner(this.computer, this.farmer)
+   var checkFarmer = this.determineClassicWinner(this.farmer, this.tractor);
+   var checkTractor = this.determineClassicWinner(this.tractor, this.farmer);
+   var checkDifficultFarmer = this.determineDifficultWinner(this.farmer, this.tractor);
+   var checkDifficultTractor = this.determineDifficultWinner(this.tractor, this.farmer);
 
    if (checkFarmer || checkDifficultFarmer) {
      this.farmer.wins++;
      this.winner = this.farmer;
    }
-   if (checkComputer || checkDifficultComputer) {
-     this.computer.wins++;
-     this.winner = this.computer;
+   if (checkTractor || checkDifficultTractor) {
+     this.tractor.wins++;
+     this.winner = this.tractor;
    }
-   if (!checkFarmer && !checkComputer && !checkDifficultFarmer && !checkDifficultComputer ) {
+   if (!checkFarmer && !checkTractor && !checkDifficultFarmer && !checkDifficultTractor ) {
      this.winner = undefined;
    }
  };
