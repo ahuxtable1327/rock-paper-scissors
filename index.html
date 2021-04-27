@@ -11,35 +11,40 @@
     </header>
     <main>
       <aside class='left-aside' id='leftAside'>
-        <div class='human-player'>👩‍🌾</div>
+        <div class='human-player' id='farmer'>👩‍🌾</div>
         <h2>Farmer Jann</h2>
-        <p>Wins:<span id='farmWins'>0</span></p>
+        <p>Wins: <span id='farmWins'> 0</span></p>
         <section class='change-game' id=changeGame>
         </section>
       </aside>
       <section class='game-console' id='gameConsole'>
         <h3 id='subtitle'>Choose your game!</h3>
+        <div class='emojis'>🥕🌽🥕🌽🥕🌽🥕🌽🥕🌽🥕🌽🥕🌽🥕🌽🥕🌽🥕</div>
         <section class='button-fighter' id='buttonFighter'>
           <button class='classic' id='classic'>
-            <h4> Classic </h4>
-            <p class='classic-rules'>Rock > Scissors</p>
-            <p class='classic-rules'>Scissors > Paper</p>
-            <p class='classic-rules'>Paper > Rock</p>
+            <h4>🪨 Classic ✂️</h4>
+            <section class='classic-choice'>
+              <p class='classic-rules'>Rock > Scissors</p>
+              <p class='classic-rules'>Scissors > Paper</p>
+              <p class='classic-rules'>Paper > Rock</p>
+            </section>
           </button>
           <button class='difficult' id='difficult'>
-            <h4> Difficult </h4>
-            <p class='difficult-rules'>Tomato > Turnip & Potato</p>
-            <p class='difficult-rules'>Turnip > Potato & Carrot </p>
-            <p class='difficult-rules'>Potato > Corn </p>
-            <p class='difficult-rules'>Corn > Turnip & Tomato</p>
-            <p class='difficult-rules'>Carrot > Potato & Tomato</p>
+            <h4>🥕 Difficult 🍅</h4>
+            <section class='difficult-choice'>
+              <p class='difficult-rules'>Tomato > Turnip & Potato</p>
+              <p class='difficult-rules'>Turnip > Potato & Carrot</p>
+              <p class='difficult-rules'>Potato > Corn & Carrot</p>
+              <p class='difficult-rules'>Corn > Turnip & Tomato</p>
+              <p class='difficult-rules'>Carrot > Corn & Tomato</p>
+            </section>
           </button>
         </section>
       </section>
       <aside class='right-aside' id='rightAside'>
-        <div class='computer-player'>💻</div>
-        <h2>Computer</h2>
-        <p>Wins:<span id='compWins'>0</span></p>
+        <div class='tractor-player' id='tractor'>🚜</div>
+        <h2>Tractor</h2>
+        <p>Wins: <span id='tractorWins'> 0</span></p>
       </aside>
     </main>
   </body>

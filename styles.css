@@ -1,9 +1,9 @@
 
-/* Font- Family
-
+/*
 COLORS:
 main: #025215
 sides: #9bcfa7
+buttons: #6bd1ad, #077a47
 */
 
 * {
@@ -12,7 +12,6 @@ sides: #9bcfa7
 	border: 0;
 	vertical-align: baseline;
   font-family: 'Montserrat', sans-serif;
-  border: 1px solid blue;
 }
 
 body {
@@ -21,8 +20,12 @@ body {
 
 header {
   background-color: #6bd1ad;
+  width: 100vw;
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 main {
   display: flex;
   flex-direction: row;
@@ -33,23 +36,44 @@ main {
 
 /* GAME CONSOLE */
 
-h3 {
-
-}
-
 .game-console {
   background-color: #b8b8b8;
   width: 60vw;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  align-items: center;
+}
+
+h3 {
+  margin-top: 5rem;
+  font-size: 2.5rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.emojis {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.classic-choice,
+.difficult-choice {
+  font-size: 1rem;
+}
+
+.button-fighter {
+  margin-top: 4rem;
 }
 
 .classic,
 .difficult {
-  background-color: #6bd1ad;
-  height: 20vh;
-  width: 20vw;
+  background: radial-gradient(#6bd1ad, #077a47);
+  height: 25vh;
+  width: 25vw;
   margin: 1rem;
   display: flex;
   justify-content: center;
@@ -58,19 +82,59 @@ h3 {
   align-self: center;
 }
 
+.classic-choices,
+.difficult-choices {
+  width: 55vw;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+button:hover {
+  background: #6bd1ad;
+}
+
 .fighter {
   height: 175px;
   width: 175px;
 }
 
-
-
-
+.fighter:hover{
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👩‍🌾</text></svg>") 16 0,auto; );
+}
 
 /* PLAYER CONSOLE */
+h2{
+  margin-bottom: 0.3rem;
+}
 
 .left-aside,
 .right-aside {
-  background-color: #d6d6d6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image:linear-gradient(to right, #e3e3e3, #b8b8b8);
   width: 20vw;
+  font-weight: 700;
+}
+
+.right-aside {
+  background-image:linear-gradient(to left, #e3e3e3, #b8b8b8);
+}
+
+.human-player,
+.tractor-player {
+  font-size: 5rem;
+  margin: 3rem 0 .4rem 0;
+}
+
+.change-game-btn {
+  margin-top: 5rem;
+  width: 12vw;
+  height: 5vh;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  background-color: #077a47;
+  color: white;
 }
