@@ -20,6 +20,7 @@ body {
 
 header {
   background-color: #6bd1ad;
+  border-bottom: 2px dashed #077a47;
   width: 100vw;
   height: 7vh;
   display: flex;
@@ -75,6 +76,7 @@ h4 {
   height: 25vh;
   width: 25vw;
   margin: 1rem;
+  border-radius: 1rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -129,12 +131,23 @@ h2{
   margin: 3rem 0 .4rem 0;
 }
 
-.change-game-btn {
+.change-game {
+  display: flex;
+  flex-direction: column;
+}
+
+.change-game-btn,
+.end-game-btn {
   margin-top: 5rem;
+  border-radius: 0.5rem;
   width: 12vw;
   height: 5vh;
   font-size: 0.9rem;
   text-transform: uppercase;
   background-color: #077a47;
   color: white;
+}
+
+.end-game-btn {
+  margin-top: 2rem;
 }

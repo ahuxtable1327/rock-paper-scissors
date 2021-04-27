@@ -16,6 +16,7 @@ difficultBtn.addEventListener('click', displayDifficultChoices)
 buttonFighter.addEventListener('click', displayFarmerChoice);
 changeGame.addEventListener('click', function(event) {
   displayMainPage(event)
+  clearStorage(event)
 });
 window.addEventListener('load', renderWins)
 
@@ -48,11 +49,19 @@ function displayDifficultChoices() {
 
 function displayChangeGameBtn() {
   changeGame.innerHTML = `
-  <button class='change-game-btn' id='changeGameBtn'>Change Game</button>`
+  <button class='change-game-btn' id='changeGameBtn'>Change Game</button>
+  <button class='end-game-btn' id='endGame'>End Game</button>`
 }
 
 function displayMainPage(event) {
   if (event.target.id === 'changeGameBtn') {
+    location.reload();
+  }
+}
+
+function clearStorage(event) {
+  if(event.target.id === 'endGame') {
+    localStorage.clear();
     location.reload();
   }
 }
