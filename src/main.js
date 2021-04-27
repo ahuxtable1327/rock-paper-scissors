@@ -4,8 +4,8 @@ var subtitle = document.getElementById('subtitle')
 var compWins = document.getElementById('compWins')
 var farmWins = document.getElementById('farmWins')
 var changeGame = document.getElementById('changeGame')
-// var classicBtn = document.getElementById('classic')
-// var difficultBtn = document.getElementById('difficult')
+var classicBtn = document.getElementById('classic')
+var difficultBtn = document.getElementById('difficult')
 
 //GLOBAL VARIABLES
 
@@ -13,33 +13,19 @@ var changeGame = document.getElementById('changeGame')
 var currentGame = new Game();
 
 // // EVENT LISTENERS
-// classicBtn.addEventListener('click', displayChoices)
-// difficultBtn.addEventListener('click', displayChoices )
-buttonFighter.addEventListener('click', function(event) {
-  displayChoices(event)
-  displayFarmerChoice(event)
-  // displayFarmerDifficult(event)
-});
+classicBtn.addEventListener('click', displayClassicChoices)
+difficultBtn.addEventListener('click', displayDifficultChoices)
+buttonFighter.addEventListener('click', displayFarmerChoice);
 changeGame.addEventListener('click', function(event) {
   displayMainPage(event)
 });
 window.addEventListener('load', renderWins)
 
+
 // EVENT HANDLERS
 
-function displayChoices(event) {
-  var gameChoice = event.target.id
-  if (gameChoice === 'classic') {
-    currentGame.determineGameType(gameChoice);
-    displayClassicChoices();
-  }
-  if (gameChoice === 'difficult') {
-    currentGame.determineGameType(gameChoice);
-    displayDifficultChoices();
-  }
-}
-
 function displayClassicChoices() {
+  currentGame.determineGameType('classic');
   subtitle.innerText = `Choose your fighter!`
   buttonFighter.innerHTML = `
     <section class='classic-choices'>
@@ -51,6 +37,7 @@ function displayClassicChoices() {
 }
 
 function displayDifficultChoices() {
+  currentGame.determineGameType('difficult');
   subtitle.innerText = `Choose your fighter!`
   buttonFighter.innerHTML = `
   <section class='difficult-choices'>
@@ -97,17 +84,8 @@ function displayComputerChoice() {
 //WIN CONDITION FUNCTIONS
 
 function playGame() {
-  evaluateWinner();
+  currentGame.checkWinConditions();
   displayWinner();
-}
-
-function evaluateWinner() {
-  if (currentGame.gameType === 'classic') {
-    currentGame.checkClassicWinConditions();
-  }
-  if (currentGame.gameType === 'difficult') {
-    currentGame.checkDifficultWinConditions();
-  }
 }
 
 function displayWinner() {
@@ -120,11 +98,16 @@ function displayWinner() {
   } else {
       subtitle.innerText = `Oh no! It's a draw!`
   }
+    disableClickEvent();
     setTimeout(resetGame, 2000);
 }
 
+function disableClickEvent() {
+  buttonFighter.removeEventListener('click', displayFarmerChoice)
+}
 
 function resetGame(){
+  buttonFighter.addEventListener('click', displayFarmerChoice)
   if (currentGame.gameType === 'classic') {
     displayClassicChoices();
     displayChangeGameBtn();
