@@ -1,9 +1,9 @@
 
-/* Font- Family
-
+/*
 COLORS:
 main: #025215
 sides: #9bcfa7
+buttons: #6bd1ad, #077a47
 */
 
 * {
@@ -26,7 +26,6 @@ header {
   justify-content: center;
   align-items: center;
 }
-
 main {
   display: flex;
   flex-direction: row;
@@ -83,6 +82,15 @@ h4 {
   align-self: center;
 }
 
+.classic-choices,
+.difficult-choices {
+  width: 55vw;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
 button:hover {
   background: #6bd1ad;
 }
@@ -96,16 +104,10 @@ button:hover {
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👩‍🌾</text></svg>") 16 0,auto; );
 }
 
-.classic-choices,
-.difficult-choices {
-  width: 55vw;
-  margin-top: 3rem;
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
-
 /* PLAYER CONSOLE */
+h2{
+  margin-bottom: 0.3rem;
+}
 
 .left-aside,
 .right-aside {
@@ -119,10 +121,6 @@ button:hover {
 
 .right-aside {
   background-image:linear-gradient(to left, #e3e3e3, #b8b8b8);
-}
-
-h2{
-  margin-bottom: 0.3rem;
 }
 
 .human-player,
