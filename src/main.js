@@ -40,15 +40,15 @@ function displayDifficultChoices() {
     <img class='fighter' id='corn' src='./assets/corn.png' alt='Corn icon'>
     <img class='fighter' id='carrot' src='./assets/carrot.png' alt='Carrot icon'>
     <img class='fighter' id='turnip' src='./assets/turnip.png' alt='Turnip icon'>
-    <img class='fighter' id='tomato' src='./assets/tomato.png' alt='Tomato icon'>
     <img class='fighter' id='potato' src='./assets/potato.png' alt='Potato icon'>
+    <img class='fighter' id='tomato' src='./assets/tomato.png' alt='Tomato icon'>
   </section>
   `
 }
 
 function displayChangeGameBtn() {
   changeGame.innerHTML = `
-  <button id='changeGameBtn'>Change Game</button>`
+  <button class='change-game-btn' id='changeGameBtn'>Change Game</button>`
 }
 
 function displayMainPage(event) {
@@ -87,7 +87,7 @@ function playGame() {
 
 function displayWinner() {
   if (currentGame.winner !== undefined) {
-    subtitle.innerText = `${currentGame.winner.token}${currentGame.winner.name} wins!${currentGame.winner.token}`
+    subtitle.innerText = `${currentGame.winner.token} ${currentGame.winner.name} wins! ${currentGame.winner.token}`
     farmWins.innerHTML = `${currentGame.farmer.wins}`
     tractorWins.innerHTML = `${currentGame.tractor.wins}`
     currentGame.farmer.saveWinsToStorage();
@@ -96,7 +96,7 @@ function displayWinner() {
       subtitle.innerText = `Oh no! It's a draw!`
   }
   disableClickEvent();
-  setTimeout(resetGame, 2000);
+  setTimeout(resetGame, 1500);
 }
 
 function disableClickEvent() {
