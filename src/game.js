@@ -6,7 +6,7 @@ class Game {
     this.isFarmersTurn = true;
     this.isTractorTurn = false;
     this.fighters = [];
-    this.classicFighters = ['classicRock', 'classicPaper', 'classicScissors'];
+    this.classicFighters = ['strawberry', 'blueberries', 'peach'];
     this.difficultFighters = ['corn', 'carrot', 'turnip', 'tomato', 'potato'];
     this.winner = undefined;
   } ;
@@ -23,9 +23,9 @@ class Game {
     }
   };
   determineClassicWinner(player1, player2) {
-    if (player1.weapon === 'classicPaper' && player2.weapon === 'classicRock' ||
-        player1.weapon === 'classicScissors' && player2.weapon === 'classicPaper' ||
-        player1.weapon === 'classicRock' && player2.weapon === 'classicScissors') {
+    if (player1.weapon === 'blueberries' && player2.weapon === 'strawberry' ||
+        player1.weapon === 'peach' && player2.weapon === 'blueberries' ||
+        player1.weapon === 'strawberry' && player2.weapon === 'peach') {
         return true;
       } else {
         return false;

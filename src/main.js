@@ -26,9 +26,9 @@ function displayClassicChoices() {
   subtitle.innerText = `Choose your fighter!`
   buttonFighter.innerHTML = `
     <section class='classic-choices'>
-      <img class='fighter' id='classicRock' src='./assets/classicRock.png' alt='classicRock icon'>
-      <img class='fighter' id='classicPaper' src='./assets/classicPaper.png' alt='classicPaper icon'>
-      <img class='fighter' id='classicScissors' src='./assets/classicScissors.png' alt='classicScissors icon'>
+      <img class='fighter' id='strawberry' src='./assets/strawberry.png' alt='strawberry icon'>
+      <img class='fighter' id='blueberries' src='./assets/blueberries.png' alt='blueberries icon'>
+      <img class='fighter' id='peach' src='./assets/peach.png' alt='peach icon'>
     </section>
   `
 }
