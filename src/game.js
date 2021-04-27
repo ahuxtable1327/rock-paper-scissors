@@ -57,14 +57,14 @@ class Game {
 
    if (checkFarmer || checkDifficultFarmer) {
      this.farmer.wins++;
-     this.winner = this.farmer
+     this.winner = this.farmer;
    }
    if (checkComputer || checkDifficultComputer) {
      this.computer.wins++;
-     this.winner = this.computer
+     this.winner = this.computer;
    }
    if (!checkFarmer && !checkComputer && !checkDifficultFarmer && !checkDifficultComputer ) {
-     this.winner = undefined
+     this.winner = undefined;
    }
  };
 }
